@@ -2,19 +2,16 @@ package com.github.fandetwa.template
 
 import java.io.File
 
-import org.apache.spark.SparkContext
+import com.github.fandetwa.template.spark.SparkRegistrator
+import org.apache.spark.serializer.KryoSerializer
 import org.apache.spark.sql.SQLContext
+import org.apache.spark.{SparkConf, SparkContext}
 
 object App {
 
   def main(args: Array[String]) {
-    loadWinUtils()
+    val (sc, sqlContext) = loadContexts()
 
-    // Load Spark contexts
-    val sc = new SparkContext("local[*]", "sandbox")
-    val sqlContext = new SQLContext(sc)
-
-    // Create DataFrame from sample csv file
     val filePath = "src/main/resources/data/FL_insurance_sample.csv"
     val df = sqlContext.read.format("com.databricks.spark.csv").options(Map(
       "header" -> "true",
@@ -25,6 +22,23 @@ object App {
     df.printSchema()
 
     sc.stop()
+  }
+
+  /**
+   * Create a SparkContext and associated SQLContext
+   * @return tuple (SparkContext, associated SQLContext)
+   */
+  private def loadContexts(): (SparkContext, SQLContext) = {
+    loadWinUtils()
+    val conf = new SparkConf()
+    conf
+      .setMaster("local[*]")
+      .setAppName("template")
+      .set("spark.serializer", classOf[KryoSerializer].getCanonicalName)
+      .set("spark.kryo.registrator", classOf[SparkRegistrator].getCanonicalName)
+    val sc = new SparkContext(conf)
+    val sqlContext = new SQLContext(sc)
+    (sc, sqlContext)
   }
 
   /**

@@ -1,4 +1,4 @@
-package com.github.fandetwa.template.unit
+package com.github.fandetwa.template
 
 import org.scalatest.{DoNotDiscover, FreeSpec, Matchers}
 
