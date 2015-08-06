@@ -34,6 +34,6 @@ object App {
   private def loadWinUtils(): Unit = {
     val sep = File.separator
     val current = new File(".").getAbsolutePath.replace(s"$sep.", "")
-    System.setProperty("hadoop.home.dir", s"$current${sep}src${sep}main${sep}resources$sep")
+    System.setProperty("hadoop.home.dir", s"$current${sep}src${sep}test${sep}resources$sep")
   }
 }
