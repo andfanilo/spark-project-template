@@ -4,11 +4,14 @@ import java.io.File
 
 import com.github.fandetwa.template.integration.SampleIntegrationTest
 import com.github.fandetwa.template.spark.RDDImplicitsTest
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.scalatest.{BeforeAndAfterAll, Suites}
 
 /**
  * Entry point for tests
  */
+@RunWith(classOf[JUnitRunner])
 class TestSuite extends Suites(
   new RDDImplicitsTest,
   new SampleUnitTest,

@@ -42,7 +42,7 @@ object App {
   }
 
   /**
-   * Need to load winutils.exe
+   * Need to load winutils.exe when developing
    * https://issues.apache.org/jira/browse/SPARK-2356
    */
   private def loadWinUtils(): Unit = {
