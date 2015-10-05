@@ -1,11 +1,10 @@
 package com.github.fandetwa.template.spark
 
 import com.github.fandetwa.template.spark.RDDImplicits.RichRDD
-import com.holdenkarau.spark.testing.SharedSparkContext
-import org.scalatest.{DoNotDiscover, FreeSpec, Matchers}
+import org.scalatest.DoNotDiscover
 
 @DoNotDiscover
-class RDDImplicitsTest extends FreeSpec with Matchers with SharedSparkContext {
+class RDDImplicitsTest extends SparkSuite {
 
   "Should reduce number of partitions of an rdd" in {
     val rdd = sc.parallelize(1 to 100).repartition(5)

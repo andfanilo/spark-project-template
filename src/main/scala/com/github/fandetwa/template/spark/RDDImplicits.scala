@@ -20,7 +20,7 @@ object RDDImplicits {
     def reduceToNbPartitions(nbOutputPartitions: Int = -1) = {
       nbOutputPartitions match {
         case x: Int if x <= 0 => rdd
-        case x: Int if x < rdd.partitions.size => rdd.coalesce(nbOutputPartitions, shuffle = false)
+        case x: Int if x < rdd.partitions.length => rdd.coalesce(nbOutputPartitions, shuffle = false)
         case _ => rdd
       }
     }

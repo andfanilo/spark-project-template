@@ -97,12 +97,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.holdenkarau</groupId>
-            <artifactId>spark-testing-base_${scala.version}</artifactId>
-            <version>${spark-testing-base.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>

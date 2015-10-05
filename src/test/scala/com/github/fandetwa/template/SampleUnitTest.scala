@@ -1,19 +1,21 @@
 package com.github.fandetwa.template
 
-import org.scalatest.{DoNotDiscover, FreeSpec, Matchers}
+import com.github.fandetwa.template.spark.SparkSuite
+import org.scalatest.DoNotDiscover
 
 /**
  * Just a simple test class
  */
 @DoNotDiscover
-class SampleUnitTest extends FreeSpec with Matchers {
+class SampleUnitTest extends SparkSuite {
 
-  "Given a value" - {
+  "Given an RDD of integers" - {
 
-    val a = 5
+    // at this point of the code, SparkSuite hasn't yet initialised SparkContext, so let rdd creation be lazy
+    lazy val rdd = sc.parallelize(Seq(1, 2, 3, 4, 5))
 
-    "should check that it is passed correctly to subtests" in {
-      a + 3 should be(8)
+    "should sum all integers in a distributed way" in {
+      rdd.reduce(_ + _) should equal(15)
     }
   }
 

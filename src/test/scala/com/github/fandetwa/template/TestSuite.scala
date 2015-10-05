@@ -2,7 +2,6 @@ package com.github.fandetwa.template
 
 import java.io.File
 
-import com.github.fandetwa.template.integration.SampleIntegrationTest
 import com.github.fandetwa.template.spark.RDDImplicitsTest
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
@@ -14,8 +13,7 @@ import org.scalatest.{BeforeAndAfterAll, Suites}
 @RunWith(classOf[JUnitRunner])
 class TestSuite extends Suites(
   new RDDImplicitsTest,
-  new SampleUnitTest,
-  new SampleIntegrationTest
+  new SampleUnitTest
 ) with BeforeAndAfterAll {
 
   override def beforeAll() {
