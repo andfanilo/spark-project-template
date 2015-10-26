@@ -1,4 +1,4 @@
-package com.github.fandetwa.template.spark
+package com.github.andfanilo.template.spark
 
 import org.apache.spark.rdd.RDD
 

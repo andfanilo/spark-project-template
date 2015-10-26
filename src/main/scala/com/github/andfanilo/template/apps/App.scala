@@ -1,6 +1,6 @@
-package com.github.fandetwa.template.apps
+package com.github.andfanilo.template.apps
 
-import com.github.fandetwa.template.AbstractApp
+import com.github.andfanilo.template.AbstractApp
 
 object App extends AbstractApp {
 

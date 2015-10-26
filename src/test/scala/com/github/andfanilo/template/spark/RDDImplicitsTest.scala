@@ -1,6 +1,6 @@
-package com.github.fandetwa.template.spark
+package com.github.andfanilo.template.spark
 
-import com.github.fandetwa.template.spark.RDDImplicits.RichRDD
+import com.github.andfanilo.template.spark.RDDImplicits.RichRDD
 import org.scalatest.DoNotDiscover
 
 @DoNotDiscover

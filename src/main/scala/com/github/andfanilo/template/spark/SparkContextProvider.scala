@@ -1,6 +1,6 @@
-package com.github.fandetwa.template.spark
+package com.github.andfanilo.template.spark
 
-import com.github.fandetwa.template.utils.Logging
+import com.github.andfanilo.template.utils.Logging
 import org.apache.spark.serializer.KryoSerializer
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.{SparkConf, SparkContext}

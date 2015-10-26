@@ -1,6 +1,6 @@
-package com.github.fandetwa.template
+package com.github.andfanilo.template
 
-import com.github.fandetwa.template.spark.{SparkContextProvider, SparkRegistrator}
+import com.github.andfanilo.template.spark.{SparkContextProvider, SparkRegistrator}
 
 /**
  * Base class for implementing Spark code. Manages the SparkContext at beginning and end of code

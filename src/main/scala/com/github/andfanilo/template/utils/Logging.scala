@@ -1,4 +1,4 @@
-package com.github.fandetwa.template.utils
+package com.github.andfanilo.template.utils
 
 import org.slf4j.{Logger, LoggerFactory}
 
@@ -11,20 +11,6 @@ trait Logging {
   // Make the log field transient so that objects with Logging can
   // be serialized and used on another machine
   @transient private var log_ : Logger = null
-
-  // Method to get the logger name for this object
-  protected def logName = {
-    // Ignore trailing $'s in the class names for Scala objects
-    this.getClass.getName.stripSuffix("$")
-  }
-
-  // Method to get or create the logger for this object
-  protected def log: Logger = {
-    if (log_ == null) {
-      log_ = LoggerFactory.getLogger(logName)
-    }
-    log_
-  }
 
   // Log methods that take only a String
   protected def logInfo(msg: => String) {
@@ -66,6 +52,20 @@ trait Logging {
 
   protected def logWarning(msg: => String, throwable: Throwable) {
     if (log.isWarnEnabled) log.warn(msg, throwable)
+  }
+
+  // Method to get or create the logger for this object
+  protected def log: Logger = {
+    if (log_ == null) {
+      log_ = LoggerFactory.getLogger(logName)
+    }
+    log_
+  }
+
+  // Method to get the logger name for this object
+  protected def logName = {
+    // Ignore trailing $'s in the class names for Scala objects
+    this.getClass.getName.stripSuffix("$")
   }
 
   protected def logError(msg: => String, throwable: Throwable) {

@@ -1,8 +1,8 @@
-package com.github.fandetwa.template
+package com.github.andfanilo.template
 
 import java.io.File
 
-import com.github.fandetwa.template.spark.RDDImplicitsTest
+import com.github.andfanilo.template.spark.RDDImplicitsTest
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.{BeforeAndAfterAll, Suites}

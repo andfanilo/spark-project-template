@@ -1,6 +1,6 @@
-package com.github.fandetwa.template
+package com.github.andfanilo.template
 
-import com.github.fandetwa.template.spark.SparkSuite
+import com.github.andfanilo.template.spark.SparkSuite
 import org.scalatest.DoNotDiscover
 
 /**
