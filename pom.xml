@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.fandetwa</groupId>
+    <groupId>com.github.andfanilo</groupId>
     <artifactId>template</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Template</name>
@@ -15,14 +15,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <scala.version>2.10</scala.version>
         <scala.fullVersion>${scala.version}.4</scala.fullVersion>
-        <spark.version>1.5.1</spark.version>
+        <spark.version>1.6.1</spark.version>
         <hadoop.version>2.7.0</hadoop.version>
-        <spark-csv.version>1.2.0</spark-csv.version>
-        <scalatest.version>2.1.2</scalatest.version>
-        <junit.version>4.4</junit.version>
-        <spark-testing-base.version>1.4.1_0.1.1</spark-testing-base.version>
+        <spark-csv.version>1.4.0</spark-csv.version>
+        <!--spark-testing-base.version>${spark.version}_0.3.1</spark-testing-base.version-->
         <scala-maven-plugin.version>3.1.6</scala-maven-plugin.version>
         <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
+        <scalatest.version>2.1.2</scalatest.version>
+        <junit.version>4.4</junit.version>
     </properties>
 
     <repositories>
@@ -85,6 +85,12 @@
         </dependency>
 
         <!-- Test configuration -->
+        <!--dependency>
+            <groupId>com.holdenkarau</groupId>
+            <artifactId>spark-testing-base</artifactId>
+            <version>${spark-testing-base.version}</version>
+            <scope>test</scope>
+        </dependency-->
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_${scala.version}</artifactId>

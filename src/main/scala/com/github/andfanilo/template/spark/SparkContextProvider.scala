@@ -1,6 +1,6 @@
 package com.github.andfanilo.template.spark
 
-import com.github.andfanilo.template.utils.Logging
+import com.github.andfanilo.template.utils.{Logging, WinUtilsLoader}
 import org.apache.spark.serializer.KryoSerializer
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.{SparkConf, SparkContext}
@@ -15,7 +15,8 @@ trait SparkContextProvider extends Logging {
 
   /**
    * Create a single accessible SparkContext
-   * @param contextType type of job
+    *
+    * @param contextType type of job
    * @param contextName name of job
    * @param serializerClass Kryo Registrator used, defaults to SparkRegistrator
    * @param kryoBuffer kryo buffer, defaults to 8M
@@ -27,12 +28,13 @@ trait SparkContextProvider extends Logging {
    */
   def createContext[T](contextType: String,
                        contextName: String,
-                       serializerClass: Class[T] = classOf[SparkRegistrator],
+                       serializerClass: Class[T],
                        kryoBuffer: String = "8M",
                        eventLogEnabled: Boolean = false,
                        applicationSparkLog: String = "file:///tmp/spark-events",
                        sqlJoinPartitions: Int = 10
                         ): (SparkContext, SQLContext) = {
+    WinUtilsLoader.loadWinUtils()
     val conf = new SparkConf()
     conf
       .setMaster(contextType)

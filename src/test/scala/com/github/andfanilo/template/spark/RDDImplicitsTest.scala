@@ -1,10 +1,11 @@
 package com.github.andfanilo.template.spark
 
+import com.github.andfanilo.template.SparkSpec
 import com.github.andfanilo.template.spark.RDDImplicits.RichRDD
 import org.scalatest.DoNotDiscover
 
 @DoNotDiscover
-class RDDImplicitsTest extends SparkSuite {
+class RDDImplicitsTest extends SparkSpec {
 
   "Should reduce number of partitions of an rdd" in {
     val rdd = sc.parallelize(1 to 100).repartition(5)

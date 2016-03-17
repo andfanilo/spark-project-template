@@ -1,13 +1,13 @@
-package com.github.andfanilo.template
+package com.github.andfanilo.template.unit
 
-import com.github.andfanilo.template.spark.SparkSuite
+import com.github.andfanilo.template.SparkSpec
 import org.scalatest.DoNotDiscover
 
 /**
  * Just a simple test class
  */
 @DoNotDiscover
-class SampleUnitTest extends SparkSuite {
+class SampleUnitTest extends SparkSpec {
 
   "Given an RDD of integers" - {
 
