@@ -1,6 +1,6 @@
 package com.github.andfanilo.template.spark
 
-import com.github.andfanilo.template.utils.{Logging, WinUtilsLoader}
+import com.github.andfanilo.template.utils.Logging
 import org.apache.spark.serializer.KryoSerializer
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.{SparkConf, SparkContext}
@@ -34,7 +34,6 @@ trait SparkContextProvider extends Logging {
                        applicationSparkLog: String = "file:///tmp/spark-events",
                        sqlJoinPartitions: Int = 10
                         ): (SparkContext, SQLContext) = {
-    WinUtilsLoader.loadWinUtils()
     val conf = new SparkConf()
     conf
       .setMaster(contextType)
