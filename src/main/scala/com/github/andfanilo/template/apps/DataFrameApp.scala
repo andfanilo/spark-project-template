@@ -7,7 +7,7 @@ object DataFrameApp extends AbstractApp {
 
   override def execute(args: Array[String]) {
     val filePath = "src/main/resources/data/FL_insurance_sample.csv"
-    val df = sqlContext.read.format("com.databricks.spark.csv").options(Map(
+    val df = sparkSession.read.format("com.databricks.spark.csv").options(Map(
       "header" -> "true",
       "delimiter" -> ",",
       "inferSchema" -> "true"

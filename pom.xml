@@ -13,15 +13,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <scala.version>2.10</scala.version>
-        <scala.fullVersion>${scala.version}.4</scala.fullVersion>
-        <spark.version>1.6.1</spark.version>
+        <scala.version>2.11</scala.version>
+        <scala.fullVersion>${scala.version}.8</scala.fullVersion>
+        <spark.version>2.0.1</spark.version>
         <hadoop.version>2.7.0</hadoop.version>
-        <spark-csv.version>1.4.0</spark-csv.version>
         <!--spark-testing-base.version>${spark.version}_0.3.1</spark-testing-base.version-->
         <scala-maven-plugin.version>3.1.6</scala-maven-plugin.version>
         <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
-        <scalatest.version>2.1.2</scalatest.version>
+        <scalatest.version>2.2.6</scalatest.version>
         <junit.version>4.4</junit.version>
     </properties>
 
@@ -77,11 +76,6 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.databricks</groupId>
-            <artifactId>spark-csv_${scala.version}</artifactId>
-            <version>${spark-csv.version}</version>
         </dependency>
 
         <!-- Test configuration -->

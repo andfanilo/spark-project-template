@@ -4,15 +4,15 @@ import com.github.andfanilo.template.spark.{SparkContextProvider, SparkRegistrat
 import com.github.andfanilo.template.utils.WinUtilsLoader
 
 /**
- * Base class for implementing Spark code. Manages the SparkContext at beginning and end of code
- */
+  * Base class for implementing Spark code. Manages the SparkContext at beginning and end of code
+  */
 abstract class AbstractApp extends SparkContextProvider {
 
   /**
-   * Main entry point for the application, it starts the SparkContext before execute() and stops it after execute()
+    * Main entry point for the application, it starts the SparkContext before execute() and stops it after execute()
     *
     * @param args program arguments
-   */
+    */
   def main(args: Array[String]): Unit = {
     WinUtilsLoader.loadWinUtils()
     createContext("local[*]", this.getClass.toString, classOf[SparkRegistrator])
@@ -21,7 +21,7 @@ abstract class AbstractApp extends SparkContextProvider {
   }
 
   /**
-   * Override this to add functionality to your application
-   */
+    * Override this to add functionality to your application
+    */
   def execute(args: Array[String])
 }

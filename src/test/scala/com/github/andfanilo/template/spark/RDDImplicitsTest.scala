@@ -8,6 +8,9 @@ import org.scalatest.DoNotDiscover
 class RDDImplicitsTest extends SparkSpec {
 
   "Should reduce number of partitions of an rdd" in {
+
+    val sc = sparkSession.sparkContext
+
     val rdd = sc.parallelize(1 to 100).repartition(5)
 
     rdd.partitions.length shouldBe 5

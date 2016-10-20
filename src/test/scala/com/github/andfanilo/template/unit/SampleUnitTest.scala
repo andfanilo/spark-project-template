@@ -11,6 +11,8 @@ class SampleUnitTest extends SparkSpec {
 
   "Given an RDD of integers" - {
 
+    lazy val sc = sparkSession.sparkContext
+
     // at this point of the code, SparkSuite hasn't yet initialised SparkContext, so let rdd creation be lazy
     lazy val rdd = sc.parallelize(Seq(1, 2, 3, 4, 5))
 
