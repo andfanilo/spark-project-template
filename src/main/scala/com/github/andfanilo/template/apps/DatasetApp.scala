@@ -12,7 +12,14 @@ object DatasetApp extends AbstractApp {
     import spark.implicits._
 
     // Encoders are created for case classes
-    val caseClassDS = Seq(Person("Andy", 32)).toDS()
+    val caseClassDS = Seq(
+      Person("Andy", 32),
+      Person("Mary", 42),
+      Person("Betty", 16)
+    ).toDS()
     caseClassDS.show()
+
+    val ds = caseClassDS.map(p => (p.age * 2, p.name)) // woot it infers ds as Dataset[(Long, String)] !
+    ds.select("_1").show()
   }
 }
