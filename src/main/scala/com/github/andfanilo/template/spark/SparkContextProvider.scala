@@ -6,7 +6,7 @@ import org.apache.spark.serializer.KryoSerializer
 import org.apache.spark.sql.SparkSession
 
 /**
-  * Trait that provides the management of a SparkContext/SQLContext
+  * Trait that provides the management of a SparkSession
   */
 trait SparkContextProvider extends Logging {
 
@@ -23,15 +23,15 @@ trait SparkContextProvider extends Logging {
     * @param applicationSparkLog where to save log files for future access, defaults to file:///tmp/spark-events
     * @param sqlJoinPartitions   how mant partitions to use for DataFrame shuffles
     * @tparam T this is for serializerClass, which is of type Class[T]
-    * @return tuple of (sparkcontext, sqlcontext)
+    * @return Spark session
     */
-  def createContext[T](contextType: String,
-                       contextName: String,
-                       serializerClass: Class[T],
-                       kryoBuffer: String = "8M",
-                       eventLogEnabled: Boolean = false,
-                       applicationSparkLog: String = "file:///tmp/spark-events",
-                       sqlJoinPartitions: Int = 10
+  def createSparkSession[T](contextType: String,
+                            contextName: String,
+                            serializerClass: Class[T],
+                            kryoBuffer: String = "8M",
+                            eventLogEnabled: Boolean = false,
+                            applicationSparkLog: String = "file:///tmp/spark-events",
+                            sqlJoinPartitions: Int = 10
                       ): SparkSession = {
     val conf = new SparkConf()
     conf
@@ -55,10 +55,10 @@ trait SparkContextProvider extends Logging {
   def sparkSession: SparkSession = _sparkSession
 
   /**
-    * Stop the SparkContext and associated SQLContext
+    * Stop the Spark session and clear driver ports
     *
     */
-  def stopContext() {
+  def stopSparkSession() {
     if (_sparkSession != null) {
       _sparkSession.stop()
     }

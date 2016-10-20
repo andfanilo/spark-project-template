@@ -29,12 +29,12 @@ trait SparkSpec extends FreeSpec with SparkContextProvider with BeforeAndAfterAl
   }
 
   override def beforeAll() {
-    createContext("local[*]", this.getClass.toString, classOf[SparkRegistrator])
+    createSparkSession("local[*]", this.getClass.toString, classOf[SparkRegistrator])
     super.beforeAll()
   }
 
   override def afterAll() {
-    stopContext()
+    stopSparkSession()
     super.afterAll()
   }
 }
